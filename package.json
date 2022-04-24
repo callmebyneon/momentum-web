@@ -1,0 +1,19 @@
+{
+  "name": "momentum-web",
+  "version": "1.0.0",
+  "description": "This is the momentum web page started with challenge from nomadcoders.co",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmebyneon/momentum-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/callmebyneon/momentum-web/issues"
+  },
+  "homepage": "https://github.com/callmebyneon/momentum-web#readme"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Momentum</title>
+  <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+  <link rel="stylesheet" href="./src/main.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="background"></div>
+    <div class="login-box hidden">
+      <div class="box-wrapper">
+        <h2>Login to My Momentum</h2>
+        <form id="loginForm">
+          <label>
+            <span class="username-label">username</span>
+            <input type="text" class="username" name="username" maxlength="15" placeholder="What's your name?" required />
+          </label>
+          <button type="submit">Log in</button>
+        </form>
+      </div>
+    </div>
+    <div class="content-box hidden">
+      <div class="content-grid">
+        <section class="content_todo">
+          <h3>Todo list</h3>
+          <ul class="content__todo-list"></ul>
+          <form id="todo-form">
+            <input type="text" placeholder="Write a to-do item" />
+            <button type="submit"><i class="ti ti-plus"></i></button>
+          </form>
+        </section>
+        <section class="content_quote">
+          <p class="quote"></p>
+          <p class="author"></p>
+        </section>
+        <section class="content_clock"></section>
+        <section class="content_weather"></section>
+      </div>
+      <!-- <footer>
+        <button class="randomBg">random background</button>
+        <a href="https://nomadcoders.co/" target="_blank">nomadcoders.co</a>
+        <a href="https://www.google.com/" target="_blank">google.com</a>
+        <a href="https://github.com/" target="_blank">github.com</a>
+        <button class="add-bookmark">add bookmark</button>
+      </footer> -->
+    </div>
+  </div>
+  <!-- <script defer type="module" src="./src/main.js"></script> -->
+  <script defer src="./src/index.js"></script>
+</body>
+</html>
