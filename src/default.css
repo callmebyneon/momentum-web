@@ -83,7 +83,7 @@ a {
 input:focus,
 button:focus,
 a:focus {
-  outline: 2px solid #aaa;
+  outline: 1px solid var(--c-dimmer);
 }
 
 a {

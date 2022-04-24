@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Momentum</title>
-  <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
   <link rel="stylesheet" href="./src/main.css" />
 </head>
 <body>
@@ -13,11 +12,11 @@
     <div class="background"></div>
     <div class="login-box hidden">
       <div class="box-wrapper">
-        <h2>Login to My Momentum</h2>
+        <h2>Log in to My Momentum ✏</h2>
         <form id="loginForm">
           <label>
-            <span class="username-label">username</span>
-            <input type="text" class="username" name="username" maxlength="15" placeholder="What's your name?" required />
+            <span class="username-label">username :</span>
+            <input type="text" class="username" name="username" maxlength="15" placeholder="Please know me your name." required />
           </label>
           <button type="submit">Log in</button>
         </form>
@@ -26,19 +25,27 @@
     <div class="content-box hidden">
       <div class="content-grid">
         <section class="content_todo">
-          <h3>Todo list</h3>
+          <h1 id="greeting-title"></h1>
+          <h3>📑 You have to finish</h3>
+          <hr />
           <ul class="content__todo-list"></ul>
           <form id="todo-form">
-            <input type="text" placeholder="Write a to-do item" />
-            <button type="submit"><i class="ti ti-plus"></i></button>
+            <input type="text" class="addTodo" name="addTodo" placeholder="Write a to-do item" />
+            <button type="submit">➕</button>
           </form>
         </section>
         <section class="content_quote">
           <p class="quote"></p>
           <p class="author"></p>
         </section>
-        <section class="content_clock"></section>
-        <section class="content_weather"></section>
+        <section class="content_clock">
+          <h5>⏲ What time is it now?</h5>
+          <div class="clock"></>
+        </section>
+        <section class="content_weather">
+          <h5>🌡 How is the weather now?</h5>
+          <div class="weather-now"></div>
+        </section>
       </div>
       <!-- <footer>
         <button class="randomBg">random background</button>

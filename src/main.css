@@ -15,6 +15,10 @@
 
 
 /* Background Image */
+.background:empty {
+  background: var(--c-primary);
+}
+
 .background, .background > img {
   position: absolute;
   left: 0;
@@ -46,28 +50,47 @@
 }
 
 .login-box .box-wrapper {
-  padding: 3rem 2rem;
-  box-shadow: 0px 4px 0.5rem var(--c-lighter);
-  background: var(--c-glass);
+  padding: 3rem;
+  background-color: var(--c-glass);
+  border: 1px solid var(--c-paper);
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px 2px var(--c-paper-shadow);
 }
 
 .login-box form {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.login-box form .username-label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: var(--c-comment);
+  font-size: 0.86rem;
 }
 
 .login-box form .username {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  background: var(--c-paper-light);
   border: 1px solid var(--c-paper-light);
 }
 
 .login-box form button[type='submit'] {
+  transition: all 0.2s;
   display: block;
   margin-top: 1rem;
   padding: 0.5rem;
   background: var(--c-primary);
   border-radius: 4px;
   font-weight: 700;
+}
+
+.login-box form button[type='submit']:hover {
+  background: var(--c-secondary);
+  color: var(--c-paper)
 }
 
 
@@ -80,6 +103,10 @@
   display: flex;
   position: absolute;
   bottom: 0;
+}
+
+#greeting-title {
+  margin-bottom: 1em;
 }
 
 .content-grid {
@@ -107,59 +134,14 @@
   box-shadow: 0px 2px 8px 2px var(--c-paper-shadow);
 }
 
-.content-grid .content_todo {
-  min-width: 50%;
-  grid-area: todo;
-  align-items: stretch;
-}
-
-.content__todo-list {
+.content-grid section h3,
+.content-grid section h5 {
   display: block;
-  height: 80%;
-  max-height: calc(60vh - 8rem);
-  overflow-x: hidden;
-  overflow-y: overlay;
-}
-
-.content__todo-list:not(:empty) {
-  padding: 1.25rem 0;
-}
-
-.content__todo-list li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.2em 1em;
-  line-height: 2em;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-.content__todo-list li > button {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 1em;
-  color: var(--c-error);
-  opacity: 0.35;
-}
-
-.content__todo-list li:hover {
-  background: var(--c-paper-shadow);
-  box-shadow: 0px 1px 8px var(--c-dimmer);
-}
-
-.content__todo-list li:hover > button {
-  opacity: 1;
-}
-
-.content__todo-list:empty:after {
-  content: "add todo item";
-  opacity: 0.7;
-  font-style: oblique;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: calc(60vh - 12.5rem);
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--c-dimmer);
 }
 
 .content-grid .content_quote {
@@ -185,6 +167,9 @@
 
 .content-grid .content_clock {
   grid-area: clock;
+}
+
+.content-grid .content_clock .clock {
   text-align: center;
   font-size: 2.25rem;
 }
@@ -194,18 +179,23 @@
 
 }
 
-.content_weather > p {
+.content_weather .weather-now {
   display: block;
   width: 100%;
 }
 
-.content_weather .name {
+.content_weather .weather-now > p {
+  display: block;
+  width: 100%;
+}
+
+.content_weather .weather-now .name {
   width: 100%;
   font-size: 0.725rem;
   color: var(--c-comment);
 }
 
-.content_weather .weather {
+.content_weather .weather-now .weather {
   display: flex;
   align-items: flex-end;
   margin-top: 0.5rem;
@@ -213,10 +203,91 @@
   font-weight: 300;
 }
 
-.content_weather .temp {
+.content_weather .weather-now .temp {
   margin-left: auto;
   color: var(--c-comment);
   font-size: 1rem;
+}
+
+
+
+/* To-do list */
+.content-grid .content_todo {
+  min-width: 50%;
+  grid-area: todo;
+  align-items: stretch;
+}
+
+.content__todo-list {
+  display: block;
+  height: 80%;
+  max-height: calc(60vh - 8rem);
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+.content__todo-list:not(:empty) {
+  padding: 0 0 1.25rem;
+}
+
+.content__todo-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.2em 1em;
+  line-height: 2em;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.content__todo-list li > button {
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.8em;
+  margin-top: -2px;
+  margin-right: 1em;
+  color: var(--c-error);
+  opacity: 0.35;
+}
+
+.content__todo-list li:hover {
+  background: var(--c-paper-shadow);
+  box-shadow: 0px 1px 8px var(--c-dimmer);
+}
+
+.content__todo-list li:hover > button {
+  opacity: 0.8;
+}
+
+.content__todo-list:empty:after {
+  content: "add todo item";
+  opacity: 0.7;
+  font-style: oblique;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: calc(60vh - 15rem);
+}
+
+#todo-form {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5em;
+  position: relative;
+  background: var(--c-paper-light);
+  border-radius: 4px;
+}
+
+#todo-form .addTodo {
+  width: 100%;
+}
+
+#todo-form button {
+  display: block;
+  position: absolute;
+  right: 1em;
+  top: calc(50% - 0.68em);
 }
 
 

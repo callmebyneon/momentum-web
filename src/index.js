@@ -45,7 +45,7 @@ function getTime() {
 
 //+++++++++++++ GET geolocation and SET weather
 function getGeolocation() {
-  const weatherHere = contentBox.querySelector(".content_weather");
+  const weatherHere = contentBox.querySelector(".content_weather .weather-now");
 
   const API_KEY = "4768cdf41f132390c7e271472a41d15c";
   const onGeoOk = async (position) => {
@@ -95,6 +95,11 @@ const contentBox = app.querySelector(".content-box");
 
 
 //+++++++++++++ Login
+function greeting(name) {
+  const greeting = document.getElementById("greeting-title");
+  greeting.innerText = `🖐 Hi, ${name}`;
+}
+
 function handleLoginSubmit(e) {
   e.preventDefault();
   const usernameInput = loginBox.querySelector("input.username");
@@ -109,7 +114,7 @@ function handleLoginSubmit(e) {
   LOCAL_STORAGE.setItem("username", username);
   loginBox.classList.add(HIDDEN_CLASS);
   contentBox.classList.remove(HIDDEN_CLASS);
-  console.log(LOCAL_STORAGE);
+  greeting(LOCAL_STORAGE.username);
 };
 
 loginBox.querySelector("#loginForm").addEventListener("submit", handleLoginSubmit);
@@ -145,7 +150,7 @@ function paintTodo(newTodo) {
   const SPAN = document.createElement("span");
   SPAN.innerText = newTodo.text;
   const BUTTON = document.createElement("button");
-  BUTTON.innerHTML = `<i class="ti ti-x"></i>`;
+  BUTTON.innerHTML = `❌`;
   BUTTON.addEventListener("click", deleteTodo);
   LI.appendChild(BUTTON);
   LI.appendChild(SPAN);
@@ -169,10 +174,12 @@ todo.form.addEventListener("submit", handleTodoSubmit);
 
 //+++++++++++++ onLoad window,
 window.onload = () => {
+
   // random background
   getRandomBackground();
 
   if (LOCAL_STORAGE.username) {
+    greeting(LOCAL_STORAGE.username);
     loginBox.classList.add(HIDDEN_CLASS);
     contentBox.classList.remove(HIDDEN_CLASS);
   } else {
@@ -187,7 +194,7 @@ window.onload = () => {
   getGeolocation();
 
   // time
-  const clock = contentBox.querySelector(".content_clock");
+  const clock = contentBox.querySelector(".content_clock .clock");
   if (clock.innerText === "") {
     clock.innerText = getTime();
   }
